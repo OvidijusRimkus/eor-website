@@ -1,0 +1,133 @@
+/* Bendrai */
+.app {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  display: block;
+  position: relative;
+}
+
+/* Intro ekranas */
+.intro {
+ position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease-out;
+  z-index: 9999;
+  background: linear-gradient(145deg, rgb(10, 10, 10), rgb(30, 30, 30));
+  color: beige;  
+  pointer-events: none; /* kad neblokuotų klikų po animacijos */
+}
+
+
+/* Kai prasideda išnykimo animacija */
+.intro.slide-up {
+  animation: slideUpFade 1s ease-in-out forwards;
+  transform: translateY(-100%);
+}
+
+
+/* Animacija: pakyla ir išblunka */
+@keyframes slideUpFade {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 100vh;
+  position: relative;
+}
+
+/* Logotipas intro metu – centre virš šūkio */
+.intro-logo {
+  position: absolute;
+  top: 150px;
+  font-size: 4rem;
+  color: beige;
+  letter-spacing: 15px;
+}
+
+/* Šūkio animacija – tik vieną kartą */
+.intro-text {
+  font-size: 2.5rem;
+   background-size: 200% auto; /* svarbu! */
+  background-position: -200% 0;
+  background: linear-gradient(90deg, beige 0%, rgb(32, 31, 31) 50%, beige 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2s linear forwards;
+  font-weight: 100;
+}
+
+
+@keyframes shine {
+  0% { background-position: -400px; }
+  100% { background-position: 400px; }
+}
+
+/* Viršutinė juosta po intro */
+.main {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  padding: 0 20px;
+  background: rgb(26, 24, 24);
+  position: relative;
+  z-index: 1;
+}
+
+
+.logo {
+  color:  beige;
+  font-size: 1.5rem;
+  margin-right: 20px;
+  padding: 0 20px;
+  
+}
+
+/* Slenkantis tekstas */
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  color: goldenrod;
+  font-size: 1.2rem;
+  animation: scrollFull 10s linear infinite;
+}
+
+@keyframes scrollFull {
+  100% {
+    transform: translateX(-100%);
+  }
+  0% {
+    transform: translateX(350%);
+  }
+}
+
+.app-content {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  display: block;
+}
+
