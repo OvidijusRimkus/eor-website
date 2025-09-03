@@ -3,7 +3,7 @@ import Header from "./Header";
 import "./Intro.css";
 import "./index.css";
 
-const Intro = () => {
+const Intro = ({ cartCount, setCartCount }) => {
   const [startTransition, setStartTransition] = useState(false);
   const [hideIntro, setHideIntro] = useState(false);
 
@@ -14,7 +14,7 @@ const Intro = () => {
       // laukiam kol animacija baigsis (pvz. 1s, priklauso nuo CSS trukmės)
       setTimeout(() => {
         setHideIntro(true);
-      }, 1000); 
+      }, 1000);
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -32,7 +32,7 @@ const Intro = () => {
         </div>
       )}
 
-      {/* Pagrindinis turinys */}
+      {/* Juoda juosta su šūkiu */}
       <div className="main">
         <div className="logo">EoR</div>
         <div className="marquee">
@@ -42,7 +42,8 @@ const Intro = () => {
         </div>
       </div>
 
-      <Header />
+      {/* Header su krepšelio skaičiumi */}
+      <Header cartCount={cartCount} setCartCount={setCartCount} />
     </div>
   );
 };

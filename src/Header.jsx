@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-const Header = () => {
+const Header = ({ cartCount }) => {
   return (
     <header className="header">
       <nav className="nav-left">
@@ -12,8 +12,15 @@ const Header = () => {
 
       <div className="logo-center">EoR</div>
 
-      <div className="search-right">
-        <input type="text" placeholder="Search..." />
+      <div className="header-right">
+        <div className="search-right">
+          <input type="text" placeholder="Search..." />
+        </div>
+
+        <div className="cart-icon">
+          🛒
+          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+        </div>
       </div>
     </header>
   );

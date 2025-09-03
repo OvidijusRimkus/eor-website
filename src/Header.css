@@ -46,3 +46,32 @@
 .search-right input::placeholder {
   color: rgb(180, 180, 180);
 }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Krepšelio ikona */
+.cart-icon {
+  position: relative; /* ← būtina, kad absolute veiktų */
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: beige;
+}
+
+
+/* Skaičiukas šalia ikonos */
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: gold;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
