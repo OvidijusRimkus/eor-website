@@ -1,6 +1,6 @@
 // app.jsx
 import React, { useState } from "react";
-import Intro from "./Intro";
+import Intro from "./components/header/Intro";
 import Sections from "./Sections";
 
 const App = () => {

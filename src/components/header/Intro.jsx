@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import "./Intro.css";
-import "./index.css";
+import "../../index.css";
+
 
 const Intro = ({ cartCount, setCartCount }) => {
   const [startTransition, setStartTransition] = useState(false);

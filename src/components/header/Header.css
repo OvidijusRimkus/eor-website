@@ -8,20 +8,74 @@
   color: beige;
   width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 10; /* pakeltas, kad visada virš kitų */
 }
 
 /* Navigacija kairėje */
-.nav-left a {
-  margin-right: 20px;
+.nav-left {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.nav-left a,
+.nav-link,
+.nav-item > span {
+  margin-right: 30px;
   text-decoration: none;
   color: beige;
   font-weight: 300;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
-.nav-left a:hover {
+.nav-left a:hover,
+.nav-link:hover,
+.nav-item > span:hover {
   color: gold;
+}
+
+/* Dropdown struktūra */
+.nav-item {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #111111e7;
+  padding: 10px 0;
+  display: flex;              /* visada flex */
+  flex-direction: column;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  /* pradžioje paslėptas */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.dropdown a {
+  padding: 10px 16px;
+  color: beige;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.dropdown a:hover {
+  background-color: #222;
+}
+
+/* Rodyti dropdown kai užvedama */
+.nav-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* Logotipas centre */
@@ -55,12 +109,11 @@
 
 /* Krepšelio ikona */
 .cart-icon {
-  position: relative; /* ← būtina, kad absolute veiktų */
+  position: relative;
   font-size: 1.5rem;
   cursor: pointer;
   color: beige;
 }
-
 
 /* Skaičiukas šalia ikonos */
 .cart-count {
